@@ -9,13 +9,30 @@ import (
 
 func main() {
 
-	mySlice := make([]int, 1, 4)
-	fmt.Printf("Length is: %d Capacity is: %d", len(mySlice), cap(mySlice))
+	testMap := map[string]int{
+		"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
 
-	for i := 1; i < 17; i++ {
-		mySlice = append(mySlice, i)
-		fmt.Printf("\nCapacity is: %d", cap(mySlice))
+	for key, value := range testMap {
+		fmt.Printf("\nKey is: %s Value is: %d", key, value)
 	}
+
+	testMap["A"] = 100
+	testMap["F"] = 20
+
+	fmt.Println()
+	fmt.Println(testMap)
+
+	delete(testMap, "F")
+
+	fmt.Println(testMap)
+
+	//mySlice := make([]int, 1, 4)
+	//fmt.Printf("Length is: %d Capacity is: %d", len(mySlice), cap(mySlice))
+	//
+	//for i := 1; i < 17; i++ {
+	//	mySlice = append(mySlice, i)
+	//	fmt.Printf("\nCapacity is: %d", cap(mySlice))
+	//}
 
 	//mySlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	//fmt.Println(mySlice[4])
