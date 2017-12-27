@@ -5,27 +5,47 @@ import (
 	"math/rand"
 	"time"
 	"strings"
+	"sync"
+	"runtime"
 )
 
 func main() {
 
-	type courseMeta struct {
-		Author string
-		Level string
-		Rating float64
-	}
+	runtime.GOMAXPROCS(2)
+	var waitGrp sync.WaitGroup
+	waitGrp.Add(2)
 
-	//var DockerDeepDive courseMeta
-	//DockerDeepDive := new courseMeta
-	DockerDeepDive := courseMeta{
-		Author: "Daniel",
-		Level: "Intermediate",
-		Rating: 5,
-	}
+	go func() { // Anonymous function (go routined by "go" keyword)
+		defer waitGrp.Done()
 
-	DockerDeepDive.Rating = 3.7
+		time.Sleep(5 * time.Second)
+		fmt.Println("Hello")
+	}()
 
-	fmt.Println(DockerDeepDive)
+	go func() {
+		defer waitGrp.Done()
+		fmt.Println("Pluralsight")
+	}()
+
+	waitGrp.Wait()
+
+	//type courseMeta struct {
+	//	Author string
+	//	Level string
+	//	Rating float64
+	//}
+	//
+	////var DockerDeepDive courseMeta
+	////DockerDeepDive := new courseMeta
+	//DockerDeepDive := courseMeta{
+	//	Author: "Daniel",
+	//	Level: "Intermediate",
+	//	Rating: 5,
+	//}
+	//
+	//DockerDeepDive.Rating = 3.7
+	//
+	//fmt.Println(DockerDeepDive)
 
 	//testMap := map[string]int{
 	//	"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
