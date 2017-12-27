@@ -5,15 +5,24 @@ import (
 	"math/rand"
 	"time"
 	"strings"
-	"os"
 )
 
 func main() {
 
-	_, err := os.Open("~\\workspace\\hello.txt")
-	if err != nil {
-		fmt.Println("Error returned was nil", err)
+	for timer := 10; timer >= 0; timer-- {
+		if timer == 0 {
+			fmt.Println("Boom!")
+			break
+		}
+
+		fmt.Println(timer)
+		time.Sleep(1 * time.Second)
 	}
+
+	//_, err := os.Open("~\\workspace\\hello.txt")
+	//if err != nil {
+	//	fmt.Println("Error returned was nil", err)
+	//}
 
 	//switch tmpNum := random(); tmpNum {
 	//case 0,2,4,6,8,10:
