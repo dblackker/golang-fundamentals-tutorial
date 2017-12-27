@@ -9,18 +9,38 @@ import (
 
 func main() {
 
-	coursesInProg := []string{"Docker",
-		"Docker Clustering", "Docker and Kubernetes"}
-	coursesCompleted := []string{"Docker",
-		"Go Fundamentals", "Puppet Fundamentals"}
+	mySlice := make([]int, 1, 4)
+	fmt.Printf("Length is: %d Capacity is: %d", len(mySlice), cap(mySlice))
 
-	for _, i := range coursesInProg {
-		for _, j := range coursesCompleted {
-			if i == j {
-				fmt.Println("We cound a clash.", i, "is in both lists")
-			}
-		}
+	for i := 1; i < 17; i++ {
+		mySlice = append(mySlice, i)
+		fmt.Printf("\nCapacity is: %d", cap(mySlice))
 	}
+
+	//mySlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	//fmt.Println(mySlice[4])
+	//
+	//mySlice[1] = 0
+	//fmt.Println(mySlice)
+	//
+	//sliceOfSlice := mySlice[2:5]
+	//fmt.Println(sliceOfSlice)
+	//
+	//sliceOfSliceToEnd := mySlice[2:]
+	//fmt.Println(sliceOfSliceToEnd)
+
+	//coursesInProg := []string{"Docker",
+	//	"Docker Clustering", "Docker and Kubernetes"}
+	//coursesCompleted := []string{"Docker",
+	//	"Go Fundamentals", "Puppet Fundamentals"}
+	//
+	//for _, i := range coursesInProg {
+	//	for _, j := range coursesCompleted {
+	//		if i == j {
+	//			fmt.Println("We cound a clash.", i, "is in both lists")
+	//		}
+	//	}
+	//}
 
 	//for timer := 10; timer >= 0; timer-- {
 	//	if timer == 0 {
