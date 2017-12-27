@@ -9,22 +9,40 @@ import (
 
 func main() {
 
-	testMap := map[string]int{
-		"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
-
-	for key, value := range testMap {
-		fmt.Printf("\nKey is: %s Value is: %d", key, value)
+	type courseMeta struct {
+		Author string
+		Level string
+		Rating float64
 	}
 
-	testMap["A"] = 100
-	testMap["F"] = 20
+	//var DockerDeepDive courseMeta
+	//DockerDeepDive := new courseMeta
+	DockerDeepDive := courseMeta{
+		Author: "Daniel",
+		Level: "Intermediate",
+		Rating: 5,
+	}
 
-	fmt.Println()
-	fmt.Println(testMap)
+	DockerDeepDive.Rating = 3.7
 
-	delete(testMap, "F")
+	fmt.Println(DockerDeepDive)
 
-	fmt.Println(testMap)
+	//testMap := map[string]int{
+	//	"A": 1, "B": 2, "C": 3, "D": 4, "E": 5}
+	//
+	//for key, value := range testMap {
+	//	fmt.Printf("\nKey is: %s Value is: %d", key, value)
+	//}
+	//
+	//testMap["A"] = 100
+	//testMap["F"] = 20
+	//
+	//fmt.Println()
+	//fmt.Println(testMap)
+	//
+	//delete(testMap, "F")
+	//
+	//fmt.Println(testMap)
 
 	//mySlice := make([]int, 1, 4)
 	//fmt.Printf("Length is: %d Capacity is: %d", len(mySlice), cap(mySlice))
