@@ -7,9 +7,17 @@ import (
 
 func main() {
 
-	bestFinish := bestLeagueFinishes(13, 10, 13, 17, 14, 5, 4)
+	if firstRank, secondRank := 39, 614; firstRank > secondRank {
+		fmt.Println("\nFirst course is doing better")
+	} else if secondRank < firstRank {
+		fmt.Println("\nOh dear... your first course must be doing abysmally.")
+	} else {
+		fmt.Println("They're the same")
+	}
 
-	fmt.Println(bestFinish)
+	//bestFinish := bestLeagueFinishes(13, 10, 13, 17, 14, 5, 4)
+
+	//fmt.Println(bestFinish)
 
 	//name := "Daniel"
 	//course := "Docker Deep Dive"
@@ -33,6 +41,7 @@ func changeCourse(course *string) string {
 }
 
 func converter(s1, s2 string) (str1, str2 string) {
+
 	s1 = strings.Title(s1)
 	s2 = strings.ToUpper(s2)
 
