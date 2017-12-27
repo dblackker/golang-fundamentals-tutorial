@@ -5,18 +5,24 @@ import (
 	"math/rand"
 	"time"
 	"strings"
+	"os"
 )
 
 func main() {
 
-	switch tmpNum := random(); tmpNum {
-	case 0,2,4,6,8,10:
-		fmt.Println("Even number, yay!")
-	case 1,3,5,7,9:
-		fmt.Println("Odd number, boo!")
-	default:
-		fmt.Println("What number? That's weird.")
+	_, err := os.Open("~\\workspace\\hello.txt")
+	if err != nil {
+		fmt.Println("Error returned was nil", err)
 	}
+
+	//switch tmpNum := random(); tmpNum {
+	//case 0,2,4,6,8,10:
+	//	fmt.Println("Even number, yay!")
+	//case 1,3,5,7,9:
+	//	fmt.Println("Odd number, boo!")
+	//default:
+	//	fmt.Println("What number? That's weird.")
+	//}
 
 	//bestFinish := bestLeagueFinishes(13, 10, 13, 17, 14, 5, 4)
 
