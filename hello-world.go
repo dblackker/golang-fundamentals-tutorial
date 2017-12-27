@@ -9,15 +9,28 @@ import (
 
 func main() {
 
-	for timer := 10; timer >= 0; timer-- {
-		if timer == 0 {
-			fmt.Println("Boom!")
-			break
-		}
+	coursesInProg := []string{"Docker",
+		"Docker Clustering", "Docker and Kubernetes"}
+	coursesCompleted := []string{"Docker",
+		"Go Fundamentals", "Puppet Fundamentals"}
 
-		fmt.Println(timer)
-		time.Sleep(1 * time.Second)
+	for _, i := range coursesInProg {
+		for _, j := range coursesCompleted {
+			if i == j {
+				fmt.Println("We cound a clash.", i, "is in both lists")
+			}
+		}
 	}
+
+	//for timer := 10; timer >= 0; timer-- {
+	//	if timer == 0 {
+	//		fmt.Println("Boom!")
+	//		break
+	//	}
+	//
+	//	fmt.Println(timer)
+	//	time.Sleep(1 * time.Second)
+	//}
 
 	//_, err := os.Open("~\\workspace\\hello.txt")
 	//if err != nil {
