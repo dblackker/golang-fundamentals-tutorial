@@ -2,17 +2,20 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 	"strings"
 )
 
 func main() {
 
-	if firstRank, secondRank := 39, 614; firstRank > secondRank {
-		fmt.Println("\nFirst course is doing better")
-	} else if secondRank < firstRank {
-		fmt.Println("\nOh dear... your first course must be doing abysmally.")
-	} else {
-		fmt.Println("They're the same")
+	switch tmpNum := random(); tmpNum {
+	case 0,2,4,6,8,10:
+		fmt.Println("Even number, yay!")
+	case 1,3,5,7,9:
+		fmt.Println("Odd number, boo!")
+	default:
+		fmt.Println("What number? That's weird.")
 	}
 
 	//bestFinish := bestLeagueFinishes(13, 10, 13, 17, 14, 5, 4)
@@ -30,6 +33,11 @@ func main() {
 	//changeCourse(&course)
 
 	//fmt.Println("\nYou are now watching course", course)
+}
+
+func random() int {
+	rand.Seed(time.Now().Unix())
+	return rand.Intn(10)
 }
 
 func changeCourse(course *string) string {
